@@ -5,7 +5,8 @@ Docker registry support a few authentication providers. Full list of supported p
 ### Prepare Htpasswd Secret
 
 Please generate your own htpasswd file. Assuming the file you generated is `htpasswd`. 
-Creating secret to hold htpasswd...
+Creating secret to hold htpasswd... One thing to note is use the `-B` flag when generating a
+htpasswd entry. Docker registry only accepts bcrypt formats. 
 ```console
 $ kubectl --namespace=kube-system create secret generic registry-auth-secret --from-file=htpasswd=htpasswd
 ```
